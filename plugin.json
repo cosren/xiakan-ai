@@ -1,0 +1,41 @@
+{
+  "name": "narrator-ai-cli-xiakan",
+  "version": "3.0.0",
+  "description": "整合 narrator-ai-cli 技能与 xiakan 内容工厂，支持电影解说视频流程与高密度脚本+时间轴生成",
+  "author": "cosren",
+  "entrypoint": "src/cli.py",
+  "settings": {
+    "LLM_API_KEY": {
+      "type": "string",
+      "description": "请输入你的大模型 API 密钥 (API Key)",
+      "required": true,
+      "secret": true
+    },
+    "LLM_BASE_URL": {
+      "type": "string",
+      "description": "请输入大模型 API 代理/基础路径",
+      "default": "https://api.deepseek.com/v1",
+      "required": true
+    },
+    "LLM_MODEL": {
+      "type": "string",
+      "description": "请输入使用的模型名称 (如 deepseek-chat, qwen-max, gpt-4o-mini)",
+      "default": "deepseek-chat",
+      "required": true
+    },
+    "NARRATOR_APP_KEY": {
+      "type": "string",
+      "description": "请输入 narrator-ai-cli 的 API Key",
+      "required": true,
+      "secret": true
+    },
+    "MATERIAL_SEARCH_API": {
+      "type": "string",
+      "description": "可选网络素材搜索接口地址，用于 search-materials 命令",
+      "required": false
+    }
+  },
+  "lifecycle": {
+    "on_install": "python3 -m src.install setup"
+  }
+}
